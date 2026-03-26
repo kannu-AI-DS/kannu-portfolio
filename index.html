@@ -11,20 +11,26 @@
     :root {
       --bg: #070707;
       --surface: #111111;
-      --surface-2: #171717;
       --text: #f4efe6;
       --muted: #b6ab98;
       --line: rgba(212, 175, 55, 0.18);
       --gold: #d4af37;
       --gold-soft: #f0d98a;
-      --dark: #050505;
       --shadow: 0 20px 60px rgba(0,0,0,.45);
       --radius: 22px;
       --max: 1180px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background:
@@ -34,43 +40,57 @@
       line-height: 1.6;
     }
 
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .container {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
-    .section { padding: 88px 0; }
+    .section {
+      padding: 88px 0;
+    }
+
     .eyebrow {
       display: inline-block;
       font-size: 12px;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-soft);
       margin-bottom: 14px;
       font-weight: 700;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: 1.1;
       margin-bottom: 14px;
+      text-shadow: 0 0 1px rgba(255,255,255,.08);
     }
+
     .section-text {
       color: var(--muted);
-      max-width: 680px;
+      max-width: 700px;
     }
 
     nav {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(7,7,7,.82);
+      background: rgba(7,7,7,.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
+
     .nav-wrap {
       display: flex;
       align-items: center;
@@ -78,21 +98,26 @@
       padding: 14px 0;
       gap: 18px;
     }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 700;
     }
+
     .brand img {
       width: 44px;
       height: 44px;
       object-fit: contain;
-      border-radius: 12px;
-      background: transparent;
-      padding: 0;
-      box-shadow: none;
     }
+
+    .brand span {
+      color: var(--text);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
     .nav-links {
       display: flex;
       gap: 22px;
@@ -100,38 +125,48 @@
       font-size: 14px;
       color: var(--muted);
     }
-    .brand span { color: var(--text); letter-spacing: .08em; text-transform: uppercase; }
-    .nav-links a:hover { color: var(--gold-soft); }
-    .nav-links a:hover { color: var(--text); }
+
+    .nav-links a:hover {
+      color: var(--gold-soft);
+    }
 
     .hero {
       padding: 56px 0 48px;
     }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 36px;
       align-items: center;
     }
+
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3rem, 7vw, 5.6rem);
       line-height: .96;
       margin-bottom: 18px;
+      text-shadow: 0 0 1px rgba(255,255,255,.08);
     }
-    .hero h1 span { color: var(--gold); }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
     .hero p {
       font-size: 17px;
       color: var(--muted);
       max-width: 620px;
       margin-bottom: 28px;
     }
+
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
       margin-bottom: 26px;
     }
+
     .btn {
       padding: 14px 22px;
       border-radius: 999px;
@@ -141,26 +176,32 @@
       justify-content: center;
       border: 1px solid transparent;
       transition: .25s ease;
+      cursor: pointer;
     }
+
     .btn-primary {
       background: linear-gradient(135deg, #d4af37, #f0d98a);
       color: #111;
       box-shadow: 0 10px 30px rgba(212,175,55,.2);
     }
+
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 16px 36px rgba(212,175,55,.28);
     }
+
     .btn-secondary {
       border-color: var(--line);
       background: transparent;
       color: var(--text);
     }
+
     .btn-secondary:hover {
       border-color: var(--gold);
       color: var(--gold-soft);
       background: rgba(212,175,55,.06);
     }
+
     .hero-meta {
       display: flex;
       gap: 28px;
@@ -168,6 +209,7 @@
       font-size: 14px;
       color: var(--muted);
     }
+
     .hero-card {
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(212,175,55,.04));
       border: 1px solid var(--line);
@@ -176,6 +218,7 @@
       box-shadow: var(--shadow);
       position: relative;
     }
+
     .hero-card::after {
       content: "";
       position: absolute;
@@ -184,6 +227,7 @@
       border-radius: 30px;
       pointer-events: none;
     }
+
     .hero-card img {
       width: 100%;
       height: 100%;
@@ -192,12 +236,6 @@
       min-height: 540px;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: start;
-    }
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
       border: 1px solid var(--line);
@@ -205,6 +243,7 @@
       box-shadow: var(--shadow);
       position: relative;
     }
+
     .card::before {
       content: "";
       position: absolute;
@@ -213,17 +252,42 @@
       background: linear-gradient(180deg, rgba(240,217,138,.05), transparent 30%);
       pointer-events: none;
     }
-    .about-card, .info-card { padding: 28px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-card,
+    .info-card,
+    .doc-card {
+      padding: 28px;
+    }
+
     .info-list {
       display: grid;
       gap: 16px;
     }
+
     .info-list div {
       padding-bottom: 14px;
       border-bottom: 1px solid var(--line);
     }
-    .info-list div:last-child { border-bottom: none; padding-bottom: 0; }
-    .label { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--gold); font-weight: 700; }
+
+    .info-list div:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--gold);
+      font-weight: 700;
+    }
 
     .skills-grid {
       display: grid;
@@ -231,6 +295,7 @@
       gap: 18px;
       margin-top: 30px;
     }
+
     .skill-box {
       padding: 22px;
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
@@ -238,29 +303,38 @@
       border-radius: 18px;
       transition: .25s ease;
     }
+
     .skill-box:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow);
       border-color: rgba(240,217,138,.45);
     }
+
     .skill-box h3 {
       margin-bottom: 8px;
       font-size: 18px;
     }
-    .skill-box p { color: var(--muted); font-size: 14px; }
 
-    .projects-grid {
+    .skill-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .projects-grid,
+    .docs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
       margin-top: 30px;
     }
+
     .project-card {
       overflow: hidden;
       transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
       position: relative;
       backdrop-filter: blur(8px);
     }
+
     .project-card::after {
       content: "";
       position: absolute;
@@ -269,11 +343,13 @@
       pointer-events: none;
       border: 1px solid rgba(240,217,138,.08);
     }
+
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 28px 70px rgba(0,0,0,.48);
       border-color: rgba(240,217,138,.28);
     }
+
     .project-image {
       overflow: hidden;
       background: radial-gradient(circle at top, rgba(212,175,55,.08), rgba(15,15,15,1) 58%);
@@ -283,6 +359,7 @@
       justify-content: center;
       min-height: 360px;
     }
+
     .project-image img {
       width: 100%;
       height: auto;
@@ -291,15 +368,37 @@
       transition: transform .45s ease;
       filter: drop-shadow(0 14px 30px rgba(0,0,0,.35));
     }
-    .project-card:hover .project-image img { transform: scale(1.03); }
-    .project-content { padding: 22px; }
-    .project-content h3 { margin-bottom: 8px; font-size: 22px; }
-    .project-content p { color: var(--muted); margin-bottom: 16px; }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.03);
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .project-content p,
+    .doc-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .doc-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
     .tags {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .tag {
       padding: 7px 12px;
       border-radius: 999px;
@@ -308,24 +407,6 @@
       font-size: 12px;
       font-weight: 600;
       color: var(--gold-soft);
-    }
-
-    .docs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 30px;
-    }
-    .doc-card {
-      padding: 28px;
-    }
-    .doc-card h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    .doc-card p {
-      color: var(--muted);
-      margin-bottom: 20px;
     }
 
     .contact-box {
@@ -337,9 +418,13 @@
       box-shadow: var(--shadow);
       border: 1px solid var(--line);
     }
-    .contact-box .section-title,
-    .contact-box .section-text { color: #fff; }
-    .contact-box .section-text { opacity: .78; margin: 0 auto 24px; }
+
+    .contact-box .section-text {
+      color: #fff;
+      opacity: .78;
+      margin: 0 auto 24px;
+    }
+
     .contact-links {
       display: flex;
       justify-content: center;
@@ -347,6 +432,7 @@
       gap: 14px;
       margin-top: 18px;
     }
+
     .contact-pill {
       border: 1px solid rgba(240,217,138,.18);
       padding: 12px 18px;
@@ -356,9 +442,17 @@
       background: rgba(255,255,255,.03);
       transition: transform .25s ease, border-color .25s ease;
     }
+
     .contact-pill:hover {
       transform: translateY(-3px);
       border-color: rgba(240,217,138,.4);
+    }
+
+    footer {
+      padding: 26px 0 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
     }
 
     @keyframes fadeUp {
@@ -382,17 +476,53 @@
       animation: fadeUp .7s ease both;
     }
 
-    footer {
-      padding: 26px 0 36px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 14px;
+    /* Popup */
+    .persona-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 9999;
     }
-    .section-title, .hero h1 {
-      text-shadow: 0 0 1px rgba(255,255,255,.08);
+
+    .persona-modal.active {
+      display: flex;
     }
-    .eyebrow {
-      color: var(--gold-soft);
+
+    .persona-box {
+      position: relative;
+      width: min(1000px, 100%);
+      max-height: 90vh;
+      background: #111;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    }
+
+    .persona-box img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .persona-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0,0,0,.72);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      border: 1px solid rgba(240,217,138,.25);
     }
 
     @media (max-width: 980px) {
@@ -403,20 +533,41 @@
       .skills-grid {
         grid-template-columns: 1fr;
       }
-      .hero-card img { min-height: 420px; }
+
+      .hero-card img {
+        min-height: 420px;
+      }
     }
 
     @media (max-width: 640px) {
-      .section { padding: 72px 0; }
-      .nav-wrap { align-items: flex-start; }
-      .nav-links { gap: 12px 16px; }
-      .brand span { font-size: 14px; }
-      .hero { padding-top: 28px; }
-      .hero-meta { gap: 14px; }
+      .section {
+        padding: 72px 0;
+      }
+
+      .nav-wrap {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px 16px;
+      }
+
+      .brand span {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-meta {
+        gap: 14px;
+      }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <div class="container nav-wrap">
       <a href="#home" class="brand">
@@ -444,7 +595,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">View My Work</a>
-          <a class="btn btn-secondary" href="jo CV.pdf" target="_blank">Download Resume</a>
+          <button class="btn btn-secondary" id="openPersonaBtn">User Persona</button>
         </div>
         <div class="hero-meta">
           <span>Based in Tamil Nadu, India</span>
@@ -488,13 +639,11 @@
             <div class="label">Contact</div>
             <strong>9566951885</strong>
           </div>
-                <div class="card project-card">
-          <div class="project-content">
-            <h3>Instagram Automation Setup</h3>
-            <p>Setup of automated reply systems for Instagram business pages to handle customer messages 24/7 professionally.</p>
+          <div>
+            <div class="label">Extra Service</div>
+            <strong>Instagram Automation Setup</strong>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -546,9 +695,7 @@
           </div>
           <div class="project-content">
             <h3>Izel Henna Studio</h3>
-            <p>
-              Complete branding project including logo presentation, packaging mockup style, and beauty studio identity.
-            </p>
+            <p>Complete branding project including logo presentation, packaging mockup style, and beauty studio identity.</p>
             <div class="tags">
               <span class="tag">Branding</span>
               <span class="tag">Henna Studio</span>
@@ -563,9 +710,7 @@
           </div>
           <div class="project-content">
             <h3>Poster Design Collection</h3>
-            <p>
-              Promotional poster work showing typography, bold composition, and event-based design layout.
-            </p>
+            <p>Promotional poster work showing typography, bold composition, and event-based design layout.</p>
             <div class="tags">
               <span class="tag">Poster</span>
               <span class="tag">Typography</span>
@@ -580,9 +725,7 @@
           </div>
           <div class="project-content">
             <h3>Kannu Designs Identity</h3>
-            <p>
-              Personal brand logo direction for a creative studio with a minimal, elegant visual style.
-            </p>
+            <p>Personal brand logo direction for a creative studio with a minimal, elegant visual style.</p>
             <div class="tags">
               <span class="tag">Personal Brand</span>
               <span class="tag">Minimal Logo</span>
@@ -597,9 +740,7 @@
           </div>
           <div class="project-content">
             <h3>Logo Presentation</h3>
-            <p>
-              Clean logo work for brand showcase and visual identity presentation.
-            </p>
+            <p>Clean logo work for brand showcase and visual identity presentation.</p>
             <div class="tags">
               <span class="tag">Logo</span>
               <span class="tag">Branding</span>
@@ -667,10 +808,9 @@
       <span class="eyebrow">Services</span>
       <h2 class="section-title">What I Offer</h2>
       <p class="section-text">UI Design, Posters, Branding, Certificates, Internship Reports, Logo Design, Image Editing, Video Editing, and Instagram Automation Services.</p>
-      <p class="section-text">I provide creative design and student-related services with clean, professional output.</p>
+      <p class="section-text" style="margin-top:10px;">I provide creative design and student-related services with clean, professional output.</p>
 
       <div class="projects-grid">
-
         <div class="card project-card">
           <div class="project-content">
             <h3>Internship Report Design</h3>
@@ -693,6 +833,12 @@
           </div>
         </div>
 
+        <div class="card project-card">
+          <div class="project-content">
+            <h3>Instagram Automation Setup</h3>
+            <p>Setup of automated reply systems for Instagram business pages to handle customer messages 24/7 professionally.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -707,18 +853,14 @@
         <div class="card doc-card">
           <span class="eyebrow">Certification</span>
           <h3>Advanced Mehendi Class Certificate</h3>
-          <p>
-            Certificate of completion for advanced mehendi class conducted by Izel Henna Studio in association with Kangeyam Institute of Commerce.
-          </p>
+          <p>Certificate of completion for advanced mehendi class conducted by Izel Henna Studio in association with Kangeyam Institute of Commerce.</p>
           <a class="btn btn-secondary" href="certificate for 5 days .pdf" target="_blank">Open Certificate</a>
         </div>
 
         <div class="card doc-card">
           <span class="eyebrow">Resume</span>
           <h3>Professional Resume</h3>
-          <p>
-            My resume includes education, internship, digital skills, documentation experience, and project work.
-          </p>
+          <p>My resume includes education, internship, digital skills, documentation experience, and project work.</p>
           <a class="btn btn-primary" href="jo CV.pdf" target="_blank">View Resume PDF</a>
         </div>
       </div>
@@ -750,5 +892,40 @@
   <footer>
     <div class="container">© 2026 Kannu Designs · Creative Studio</div>
   </footer>
+
+  <!-- Persona Popup -->
+  <div class="persona-modal" id="personaModal">
+    <div class="persona-box">
+      <button class="persona-close" id="closePersonaBtn">&times;</button>
+      <img src="persona.png" alt="User Persona">
+    </div>
+  </div>
+
+  <script>
+    const openPersonaBtn = document.getElementById("openPersonaBtn");
+    const closePersonaBtn = document.getElementById("closePersonaBtn");
+    const personaModal = document.getElementById("personaModal");
+
+    openPersonaBtn.addEventListener("click", function () {
+      personaModal.classList.add("active");
+    });
+
+    closePersonaBtn.addEventListener("click", function () {
+      personaModal.classList.remove("active");
+    });
+
+    personaModal.addEventListener("click", function (e) {
+      if (e.target === personaModal) {
+        personaModal.classList.remove("active");
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        personaModal.classList.remove("active");
+      }
+    });
+  </script>
+
 </body>
 </html>
