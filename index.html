@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kannu Designs | Creative Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070707;
+      --surface: #111111;
+      --surface-2: #171717;
+      --text: #f4efe6;
+      --muted: #b6ab98;
+      --line: rgba(212, 175, 55, 0.18);
+      --gold: #d4af37;
+      --gold-soft: #f0d98a;
+      --dark: #050505;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,.08), transparent 28%),
+        linear-gradient(180deg, #090909 0%, #070707 48%, #0a0a0a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section { padding: 88px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .section-text {
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7,7,7,.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+    .brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .brand span { color: var(--text); letter-spacing: .08em; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--gold-soft); }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 56px 0 48px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: .96;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      transition: .25s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af37, #f0d98a);
+      color: #111;
+      box-shadow: 0 10px 30px rgba(212,175,55,.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      border-color: var(--line);
+      background: transparent;
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold-soft);
+      background: rgba(212,175,55,.06);
+    }
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(212,175,55,.04));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(240,217,138,.18);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      min-height: 540px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .about-card, .info-card { padding: 28px; }
+    .info-list {
+      display: grid;
+      gap: 16px;
+    }
+    .info-list div {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .info-list div:last-child { border-bottom: none; padding-bottom: 0; }
+    .label { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--gold); font-weight: 700; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .skill-box {
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: .25s ease;
+    }
+    .skill-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(240,217,138,.45);
+    }
+    .skill-box h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .skill-box p { color: var(--muted); font-size: 14px; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .project-card {
+      overflow: hidden;
+    }
+    .project-image {
+      aspect-ratio: 16 / 11;
+      overflow: hidden;
+      background: #0f0f0f;
+    }
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .project-card:hover .project-image img { transform: scale(1.04); }
+    .project-content { padding: 22px; }
+    .project-content h3 { margin-bottom: 8px; font-size: 22px; }
+    .project-content p { color: var(--muted); margin-bottom: 16px; }
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,55,.08);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold-soft);
+    }
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .doc-card {
+      padding: 28px;
+    }
+    .doc-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .doc-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 44px 24px;
+      background: linear-gradient(180deg, rgba(212,175,55,.12), rgba(255,255,255,.02));
+      color: #fff;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .contact-box .section-title,
+    .contact-box .section-text { color: #fff; }
+    .contact-box .section-text { opacity: .78; margin: 0 auto 24px; }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .contact-pill {
+      border: 1px solid rgba(240,217,138,.18);
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 14px;
+      background: rgba(255,255,255,.03);
+    }
+
+    footer {
+      padding: 26px 0 36px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+    .section-title, .hero h1 {
+      text-shadow: 0 0 1px rgba(255,255,255,.08);
+    }
+    .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .projects-grid,
+      .docs-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-card img { min-height: 420px; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 72px 0; }
+      .nav-wrap { align-items: flex-start; }
+      .nav-links { gap: 12px 16px; }
+      .brand span { font-size: 14px; }
+      .hero { padding-top: 28px; }
+      .hero-meta { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <img src="kd-logo.png" alt="Kannu Designs logo">
+        <span>Kannu Designs</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#documents">Documents</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">UI & Graphic Designer</span>
+        <h1>Kannu <span>Designs</span><br>Creative Studio</h1>
+        <p>
+          I create modern UI designs, posters, logos, certificates, wedding cards, and digital content.
+          This portfolio highlights my design work, branding ideas, and professional documents.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Work</a>
+          <a class="btn btn-secondary" href="jo CV.pdf" target="_blank">Download Resume</a>
+        </div>
+        <div class="hero-meta">
+          <span>Based in Tamil Nadu, India</span>
+          <span>Available for freelance work</span>
+          <span>Phone: 9566951885</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="ME.jpg" alt="Black and white portrait of Kannu">
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="card about-card">
+        <span class="eyebrow">About Me</span>
+        <h2 class="section-title">Simple, clean, and meaningful design.</h2>
+        <p class="section-text">
+          I am a beginner designer with interest in UI design, poster creation, logo design, certificate design,
+          image editing, and basic video editing. I enjoy creating clean visuals that look modern and professional.
+          I also work on branding ideas and design presentations for clients and students.
+        </p>
+      </div>
+      <div class="card info-card">
+        <span class="eyebrow">Quick Info</span>
+        <div class="info-list">
+          <div>
+            <div class="label">Studio Name</div>
+            <strong>Kannu Designs</strong>
+          </div>
+          <div>
+            <div class="label">Special Focus</div>
+            <strong>UI Design, Posters, Branding, Certificates</strong>
+          </div>
+          <div>
+            <div class="label">Featured Brand Project</div>
+            <strong>Izel Henna Studio</strong>
+          </div>
+          <div>
+            <div class="label">Contact</div>
+            <strong>9566951885</strong>
+          </div>
+                <div class="card project-card">
+          <div class="project-content">
+            <h3>Instagram Automation Setup</h3>
+            <p>Setup of automated reply systems for Instagram business pages to handle customer messages 24/7 professionally.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <span class="eyebrow">Skills</span>
+      <h2 class="section-title">What I can create</h2>
+      <p class="section-text">These are the main services and design areas I want to showcase in my portfolio.</p>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>UI Design</h3>
+          <p>Mobile and website layouts in Figma with modern, simple structure.</p>
+        </div>
+        <div class="skill-box">
+          <h3>Poster Design</h3>
+          <p>Social media posters, event creatives, and promotional visual content.</p>
+        </div>
+        <div class="skill-box">
+          <h3>Logo Design</h3>
+          <p>Minimal and elegant identity marks for studios, brands, and small businesses.</p>
+        </div>
+        <div class="skill-box">
+          <h3>Certificate Design</h3>
+          <p>Professional certificate layouts for classes, events, and institutions.</p>
+        </div>
+        <div class="skill-box">
+          <h3>Image Editing</h3>
+          <p>Photo cleanup, layout edits, poster edits, and simple branding visuals.</p>
+        </div>
+        <div class="skill-box">
+          <h3>Video Editing</h3>
+          <p>Basic editing for promotional clips, wedding videos, and short creative content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="eyebrow">Projects</span>
+      <h2 class="section-title">Selected portfolio work</h2>
+      <p class="section-text">A few works that represent my style, branding ideas, and creative direction.</p>
+
+      <div class="projects-grid">
+        <article class="card project-card">
+          <div class="project-image">
+            <img src="MOCKUP 5.jpg" alt="Izel Henna Studio mockup branding presentation">
+          </div>
+          <div class="project-content">
+            <h3>Izel Henna Studio</h3>
+            <p>
+              Complete branding project including logo presentation, packaging mockup style, and beauty studio identity.
+            </p>
+            <div class="tags">
+              <span class="tag">Branding</span>
+              <span class="tag">Henna Studio</span>
+              <span class="tag">Mockup</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-image">
+            <img src="IMAGE EDITED.jpg" alt="Edited design project preview">
+          </div>
+          <div class="project-content">
+            <h3>Poster Design Collection</h3>
+            <p>
+              Promotional poster work showing typography, bold composition, and event-based design layout.
+            </p>
+            <div class="tags">
+              <span class="tag">Poster</span>
+              <span class="tag">Typography</span>
+              <span class="tag">Social Design</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-image">
+            <img src="kd-logo.png" alt="Kannu Designs logo preview">
+          </div>
+          <div class="project-content">
+            <h3>Kannu Designs Identity</h3>
+            <p>
+              Personal brand logo direction for a creative studio with a minimal, elegant visual style.
+            </p>
+            <div class="tags">
+              <span class="tag">Personal Brand</span>
+              <span class="tag">Minimal Logo</span>
+              <span class="tag">Studio Identity</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-image">
+            <img src="LOGO 6.png" alt="Logo design showcase">
+          </div>
+          <div class="project-content">
+            <h3>Logo Presentation</h3>
+            <p>
+              Clean logo work for brand showcase and visual identity presentation.
+            </p>
+            <div class="tags">
+              <span class="tag">Logo</span>
+              <span class="tag">Branding</span>
+              <span class="tag">Identity</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="figma">
+    <div class="container">
+      <span class="eyebrow">Figma Project</span>
+      <h2 class="section-title">Zara UI Design</h2>
+      <p class="section-text">A UI design project created in Figma showcasing a fashion website layout with modern design and clean structure.</p>
+      <div class="card doc-card">
+        <h3>Live Prototype Preview</h3>
+        <p>Visitors can view and interact with my Zara fashion UI prototype directly inside this portfolio.</p>
+        <div style="position: relative; width: 100%; padding-top: 62%; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: #fff; margin: 22px 0;">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/bhvUXVO7aJv8FWswGL87EJ/ZA-Fashion?node-id=0-1&t=AiAniLhJLmHSAoCZ-1"
+            allowfullscreen
+            loading="lazy"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;">
+          </iframe>
+        </div>
+        <a class="btn btn-primary" href="https://www.figma.com/proto/bhvUXVO7aJv8FWswGL87EJ/ZA-Fashion?node-id=0-1&t=AiAniLhJLmHSAoCZ-1" target="_blank">Open Full Prototype</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="before-after">
+    <div class="container">
+      <span class="eyebrow">Editing Work</span>
+      <h2 class="section-title">Before & After Edit</h2>
+      <p class="section-text">A simple example of my image editing work, showing original and improved version.</p>
+
+      <div class="projects-grid">
+        <div class="card project-card">
+          <div class="project-image">
+            <img src="before.jpg" alt="Before editing image">
+          </div>
+          <div class="project-content">
+            <h3>Before</h3>
+            <p>Original image before editing.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-image">
+            <img src="after.jpg" alt="After editing image">
+          </div>
+          <div class="project-content">
+            <h3>After</h3>
+            <p>Edited version with improved visuals and text.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <span class="eyebrow">Services</span>
+      <h2 class="section-title">What I Offer</h2>
+      <p class="section-text">UI Design, Posters, Branding, Certificates, Internship Reports, Logo Design, Image Editing, Video Editing, and Instagram Automation Services.</p>
+      <p class="section-text">I provide creative design and student-related services with clean, professional output.</p>
+
+      <div class="projects-grid">
+
+        <div class="card project-card">
+          <div class="project-content">
+            <h3>Internship Report Design</h3>
+            <p>I create complete internship reports with clean formatting, structured content, and professional presentation for college students.</p>
+            <a class="btn btn-primary" href="INTERNSHIP.pdf" target="_blank">View Sample</a>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-content">
+            <h3>Poster & Certificate Design</h3>
+            <p>Creative posters, certificates, and event designs with a clean, modern, and professional style.</p>
+          </div>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-content">
+            <h3>UI & Branding Design</h3>
+            <p>Figma UI design, logo design, branding, and basic video editing for businesses and personal projects.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="documents">
+    <div class="container">
+      <span class="eyebrow">Documents</span>
+      <h2 class="section-title">Certificate & Resume</h2>
+      <p class="section-text">These documents help show my training and profile in a professional way.</p>
+
+      <div class="docs-grid">
+        <div class="card doc-card">
+          <span class="eyebrow">Certification</span>
+          <h3>Advanced Mehendi Class Certificate</h3>
+          <p>
+            Certificate of completion for advanced mehendi class conducted by Izel Henna Studio in association with Kangeyam Institute of Commerce.
+          </p>
+          <a class="btn btn-secondary" href="certificate for 5 days .pdf" target="_blank">Open Certificate</a>
+        </div>
+
+        <div class="card doc-card">
+          <span class="eyebrow">Resume</span>
+          <h3>Professional Resume</h3>
+          <p>
+            My resume includes education, internship, digital skills, documentation experience, and project work.
+          </p>
+          <a class="btn btn-primary" href="jo CV.pdf" target="_blank">View Resume PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title">Let's work together</h2>
+        <p class="section-text">
+          I am open to design work for posters, certificates, wedding cards, logos, UI design, and creative digital projects.
+        </p>
+        <div class="hero-actions" style="justify-content:center; margin-bottom: 8px;">
+          <a class="btn btn-primary" href="tel:9566951885">Call Now</a>
+          <a class="btn btn-secondary" href="mailto:kannubusiness20@gmail.com">Send Email</a>
+        </div>
+        <div class="contact-links">
+          <span class="contact-pill">Instagram: kd_kannu_designs</span>
+          <span class="contact-pill">Kannu Designs</span>
+          <span class="contact-pill">9566951885</span>
+          <span class="contact-pill">Creative Studio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© 2026 Kannu Designs · Creative Studio</div>
+  </footer>
+</body>
+</html>
